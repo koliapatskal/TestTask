@@ -10,6 +10,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule, Routes } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { UserAddFormComponent } from './components/user-add-form/user-add-form.component';
 
 const routes: Routes = [
   { path: 'user-table', component: UserTableComponent },
@@ -18,7 +25,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UserTableComponent
+    UserTableComponent,
+    UserAddFormComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +34,11 @@ const routes: Routes = [
     CommonModule,
     MatTableModule,
     MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forRoot(routes)
   ],

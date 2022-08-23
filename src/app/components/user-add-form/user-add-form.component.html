@@ -1,0 +1,43 @@
+<h2 class="title">Додати користувача</h2>
+<form [formGroup]="createdUserForm">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Ім'я</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <label [hidden]=""></label>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Прізвище</mat-label>
+        <input matInput placeholder="Surname" formControlName="surname">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>По-батькові</mat-label>
+        <input matInput placeholder="Middlename" formControlName="middlename">
+    </mat-form-field>
+
+    <div class="sex-radio-group" fxLayout="column" fxLayoutGap="15px">
+        <label for="sex-radio-buttons">Стать</label>
+        <mat-radio-group id="sex-radio-buttons" fxLayout="row" fxLayoutGap="15px" formControlName="sex">
+            <mat-radio-button value="1">Чоловіча</mat-radio-button>
+            <mat-radio-button value="2">Жіноча</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <mat-form-field class="full-width" appearance="fill" >
+        <mat-label>Здібності</mat-label>
+        <textarea matInput rows="6" formControlName="abilities"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    
+</form>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <button mat-raised-button (click)="clear()">Clear</button>
+    <button mat-raised-button (click)="addUser()">Save</button>
+</div>
