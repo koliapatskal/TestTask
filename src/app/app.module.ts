@@ -20,6 +20,7 @@ import { UserAddFormComponent } from './components/user-add-form/user-add-form.c
 
 const routes: Routes = [
   { path: 'user-table', component: UserTableComponent },
+  { path: 'user-form', component: UserAddFormComponent },
 ];
 
 @NgModule({
