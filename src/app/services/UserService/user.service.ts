@@ -33,7 +33,7 @@ export class UserService {
   }
 
   public saveData(){
-    localStorage.setItem('app-users-test', JSON.stringify(this.users$.getValue()))
+    localStorage.setItem('app-users', JSON.stringify(this.users$.getValue()))
   }
 
   public getCount(): number{
