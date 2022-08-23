@@ -9,6 +9,11 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'user-table', component: UserTableComponent },
+];
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatTableModule,
     MatButtonModule,
     FlexLayoutModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ UserService ],
   bootstrap: [AppComponent]
