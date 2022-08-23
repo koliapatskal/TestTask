@@ -12,6 +12,8 @@ export class UserService {
     let jsonUsers = localStorage.getItem('app-users');
     if(jsonUsers){
       this.users$ = new BehaviorSubject<User[]>(JSON.parse(jsonUsers));
+    } else {
+      this.users$ = new BehaviorSubject<User[]>([]);
     }
   }
 
