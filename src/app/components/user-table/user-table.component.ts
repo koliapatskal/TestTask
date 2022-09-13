@@ -4,21 +4,25 @@ import { Subscription } from 'rxjs';
 import { User } from 'src/app/user';
 import { UserService } from 'src/app/services/UserService/user.service';
 
+
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.css']
+  styleUrls: ['./user-table.component.css'],
 })
 export class UserTableComponent implements OnInit {
+
+  isOn = 'true';
   //Змінна для збереження підписок, від яких будуть відписуватись при знищенні компоненту
   private subscriptions: Subscription[] = [];
-  displayedColumns: string[] = ['name', 'status', 'buttons'];
+  displayedColumns: string[] = ['name', 'status', 'statuss' , 'buttons'];
   dataSource!: User[];
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.getSubscribe();
+
   }
 
   getSubscribe(): void{

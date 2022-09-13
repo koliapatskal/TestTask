@@ -1,0 +1,23 @@
+.w{
+    height: 100%;
+    position: relative;
+}
+
+.limit{
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 20;
+    opacity: 0;
+    cursor: col-resize;
+    width: 2px;
+    padding: 0 5px;
+    border-right: 2px solid silver;
+    align-self: stretch;
+    transition: opacity .3s;
+}
+
+.w:hover .limit{
+    opacity: 1;
+}

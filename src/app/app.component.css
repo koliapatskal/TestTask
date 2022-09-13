@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .users-modules{
     padding: 50px;
   }
