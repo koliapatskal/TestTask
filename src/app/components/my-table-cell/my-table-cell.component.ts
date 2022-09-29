@@ -10,7 +10,7 @@ export class MyTableCellComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
-    
+    console.log('From master');
   }
 
   public sett(str: any){
