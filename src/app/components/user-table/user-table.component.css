@@ -30,6 +30,13 @@ td{
 .w{
     height: 100%;
     position: relative;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+.w div{
+    background: black;
 }
 .limit{
     position: absolute;

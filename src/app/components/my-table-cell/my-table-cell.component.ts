@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, Renderer2 } from '@angular/core';
+import { AfterContentChecked, ElementRef } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-my-table-cell',
@@ -6,12 +7,18 @@ import { Component, Input, OnInit, Renderer2 } from '@angular/core';
   styleUrls: ['./my-table-cell.component.css']
 })
 export class MyTableCellComponent implements OnInit {
-  @Input() headerName: string = '';
-  @Input() isSort: boolean = false;
-
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef, private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
+    
+  }
+
+  public sett(str: any){
+
+
+    this.renderer.appendChild(this.el.nativeElement.childNodes[0], str);
+
+    this.cdr.detectChanges();
   }
 
 }

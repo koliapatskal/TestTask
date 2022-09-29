@@ -12,6 +12,7 @@ import { MyTableCellDirective } from 'src/app/directives/my-table-cell.directive
 import { StretchCellDirective } from 'src/app/directives/table/stretch-cell.directive';
 import { StretchSortCellDirective } from 'src/app/directives/table/stretch-sort-cell.directive';
 import { StretchTableDirective } from 'src/app/directives/table/stretch-table.directive';
+import { QDirective } from '../../directives/q.directive';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
     StretchCellDirective,
     StretchSortCellDirective,
     StretchTableDirective,
+    QDirective,
   ],
   imports: [
     CommonModule,

@@ -1,13 +1,35 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, ComponentFactoryResolver, ComponentRef, Directive, ElementRef, HostListener, OnInit, Renderer2, TemplateRef, ViewContainerRef } from '@angular/core';
+import { MyTableCellComponent } from 'src/app/components/my-table-cell/my-table-cell.component';
 
 @Directive({
   selector: 'table[appStretchTable]'
 })
-export class StretchTableDirective {
+export class StretchTableDirective implements OnInit, AfterViewInit {
   private curTh!: any;
   private mouseMoveFunc!: any;
 
-  constructor(private el: ElementRef) { }
+
+  constructor(private el: ElementRef, private componentFactoryResolver: ComponentFactoryResolver, private renderer: Renderer2, private viewContainerRef: ViewContainerRef) { 
+    
+    
+    }
+
+  ngOnInit(): void {
+  }
+  ngAfterViewInit(): void {
+    
+    let THs = this.el.nativeElement.getElementsByTagName('th');
+    for(let i = 0; i < THs.length - 1; i++){
+      
+      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MyTableCellComponent);
+      let componentRef = this.viewContainerRef.createComponent(componentFactory);
+      let content = THs[i].childNodes[0];
+
+      this.renderer.removeChild(THs[i], content);
+      componentRef.instance.sett(content);
+      this.renderer.appendChild(THs[i], componentRef.location.nativeElement);
+    }
+  }
 
   @HostListener('mousedown',['$event']) onMouseDown(event: any){
     if(!event.target.closest(".limit")){

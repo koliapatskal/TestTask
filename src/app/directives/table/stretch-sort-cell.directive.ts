@@ -1,4 +1,4 @@
-import { ComponentRef, Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, ComponentRef, Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { MyTableCellComponent } from 'src/app/components/my-table-cell/my-table-cell.component';
 
 @Directive({
@@ -11,15 +11,19 @@ export class StretchSortCellDirective {
 
   constructor(
     private elementRef: TemplateRef<any>,
+    private componentFactoryResolver: ComponentFactoryResolver,
     private viewContainerRef: ViewContainerRef
   ) {
-    this.componentRef = this.viewContainerRef.createComponent(MyTableCellComponent);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MyTableCellComponent);
+    this.componentRef = this.viewContainerRef.createComponent(componentFactory);
     this.elementRef.createEmbeddedView(this.componentRef);
   }
 
   ngOnInit(): void {
-    this.componentRef.setInput('headerName', this.stretchSortCell);
-    this.componentRef.setInput('isSort', true);
+    //this.componentRef.setInput('headerName', this.stretchSortCell);
+    //this.componentRef.setInput('isSort', true);
+    this.componentRef.instance.headerName = this.stretchSortCell;
+    this.componentRef.instance.isSort = true;
   }
 
 }

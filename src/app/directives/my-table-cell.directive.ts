@@ -6,7 +6,6 @@ import { MyTableCellComponent } from '../components/my-table-cell/my-table-cell.
 })
 export class MyTableCellDirective implements OnInit{
   @Input() appMyTableCell: string = '';
-  @Input() myTableCellSort: string = '';
   private componentRef: ComponentRef<any> | null = null;
 
   constructor(
