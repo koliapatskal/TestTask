@@ -20,6 +20,7 @@
 
 .limit{
     width: 3px;
+    padding: 0 4px;
 }
 
 .w:hover .limit{
