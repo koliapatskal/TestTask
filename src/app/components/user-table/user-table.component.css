@@ -15,6 +15,9 @@ td{
     white-space: nowrap;
     min-width: 50px;
 }
+td{
+    min-width: 51px;
+}
 .title{
     text-align: center;
     margin-bottom: 50px;
