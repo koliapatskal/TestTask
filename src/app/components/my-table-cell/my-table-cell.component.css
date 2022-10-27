@@ -18,6 +18,10 @@
     transition: opacity .3s;
 }
 
+.limit{
+    width: 3px;
+}
+
 .w:hover .limit{
     opacity: 1;
 }
